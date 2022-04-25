@@ -1,0 +1,39 @@
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Project specific
+
+# Unit test / coverage reports
+coverage/
+.nyc_output
+
+# OS auto-generated files
+.DS_Store
+._*
+
+
+# Vim
+*~
+*.swp
+*.swo
+
+# IDE files
+.idea/
+
+#env
+.env
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+package-lock.json
+logs/recognition/
+logs/utop/
+
+# Docker
+
+
