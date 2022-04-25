@@ -21,6 +21,7 @@
   "dependencies": {
     "cross-env": "^3.2.3",
     "dotenv": "^4.0.0",
+    "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "sequelize": "^5.8.6"
   }
