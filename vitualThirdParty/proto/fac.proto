@@ -1,0 +1,28 @@
+syntax = "proto3";
+package fac;
+
+service GetData {
+    rpc GetListfac (FacListRequest) returns (FacResponse);
+    rpc GetfacById (FacRequest) returns (FacItemResponse);
+}
+
+message FacListRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message FacRequest {
+    int32 id = 1;
+}
+
+message FacResponse {
+    repeated FacItemResponse facs = 1;
+}
+
+message FacItemResponse {
+    string id = 1;
+    string name = 2;
+    string facResponsibility = 3;
+    int32 facPrice = 4;
+}
+

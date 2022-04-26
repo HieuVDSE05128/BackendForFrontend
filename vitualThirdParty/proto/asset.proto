@@ -6,6 +6,11 @@ service GetData {
     rpc GetAssetById (AssetRequest) returns (AssetItemResponse);
 }
 
+service CreateData {
+    rpc Create1 (nothing) returns (nothing);
+    rpc Create2 (nothing) returns (nothing);
+}
+
 message AssetListRequest {
     int32 page = 1;
     int32 size = 2;
@@ -24,5 +29,9 @@ message AssetItemResponse {
     string name = 2;
     string assetResponsibility = 3;
     int32 assetPrice = 4;
+}
+
+message nothing {
+    string id = 1;
 }
 

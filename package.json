@@ -8,10 +8,10 @@
     "pro": "cross-env NODE_PATH=. NODE_ENV=production nodemon ",
     "mobile": "cross-env NODE_PATH=. NODE_ENV=development nodemon mobileServerBackend.js",
     "web": "cross-env NODE_PATH=. NODE_ENV=development nodemon webServerBackend.js",
+    "both": "concurrently --kill-others \"npm run mobile\" \"npm run web\"",
     "fac": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/facServer.js",
     "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/assServer.js",
     "seat": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/seatServer.js",
-    "both": "concurrently --kill-others \"npm run mobile\" \"npm run web\"",
     "assgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/assGrpcServer.js", 
     "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\" \"npm run assgrpc\"",
     "test": "echo \"Error: no test specified\" && exit 1"

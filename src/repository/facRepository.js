@@ -19,10 +19,6 @@ const client = new asset_proto.GetData(config.externalSystem.assestUrl,
     // No credentials
     grpc.credentials.createInsecure());
 
-const client2 = new asset_proto.CreateData(config.externalSystem.assestUrl,
-    // No credentials
-    grpc.credentials.createInsecure());
-
 module.exports = {
     getListAsset(req, res, next) {
         const { page, size } = req.query;
@@ -40,19 +36,5 @@ module.exports = {
             }
             res.send(response)
         })
-    },
-
-    testFunction(req, res, next) {
-        let i = 0;
-        client2.Create1({ id: '1' }, (err, response) => {
-            console.log(create1);
-            i++;
-        });
-        client2.Create2({ id: '1' }, (err, response) => {
-            i++;
-            console.log(create2)
-            res.send(i.toString());
-        });
-
     }
 };

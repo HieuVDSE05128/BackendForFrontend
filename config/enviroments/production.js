@@ -1,10 +1,13 @@
+require("dotenv").config();
 module.exports = {
     enviroment: {
         name: 'production',
         status: 'online',
-        facUrl: process.env.PRODUCTION_FAC_URL,
-        assestUrl: process.env.PRODUCTION_ASSET_URL,
-        seatUrl: process.env.PRODUCTION_SEAT_URL,
         port: 8000,
+    },
+    externalSystem: {
+        facUrl: process.env.DEVELOPMENT_FAC_URL,
+        assestUrl: process.env.DEVELOPMENT_ASSET_URL,
+        seatUrl: process.env.DEVELOPMENT_SEAT_URL,
     }
 }

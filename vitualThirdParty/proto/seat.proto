@@ -1,0 +1,28 @@
+syntax = "proto3";
+package seat;
+
+service GetData {
+    rpc GetListSeat (SeatListRequest) returns (SeatResponse);
+    rpc GetSeatById (SeatRequest) returns (SeatItemResponse);
+}
+
+message SeatListRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message SeatRequest {
+    int32 id = 1;
+}
+
+message SeatResponse {
+    repeated SeatItemResponse Seats = 1;
+}
+
+message SeatItemResponse {
+    string id = 1;
+    string name = 2;
+    string SeatResponsibility = 3;
+    int32 SeatPrice = 4;
+}
+
