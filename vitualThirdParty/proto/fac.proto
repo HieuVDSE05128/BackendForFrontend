@@ -20,9 +20,11 @@ message FacResponse {
 }
 
 message FacItemResponse {
-    string id = 1;
-    string name = 2;
-    string facResponsibility = 3;
-    int32 facPrice = 4;
+    int32 id = 1; 
+    string first_name = 2; 
+    string last_name = 3;
+    string email = 4; 
+    string gender = 5;
+    bool isCovid = 6;
 }
 

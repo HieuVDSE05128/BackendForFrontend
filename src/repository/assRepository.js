@@ -42,17 +42,4 @@ module.exports = {
         })
     },
 
-    testFunction(req, res, next) {
-        let i = 0;
-        client2.Create1({ id: '1' }, (err, response) => {
-            console.log(create1);
-            i++;
-        });
-        client2.Create2({ id: '1' }, (err, response) => {
-            i++;
-            console.log(create2)
-            res.send(i.toString());
-        });
-
-    }
 };

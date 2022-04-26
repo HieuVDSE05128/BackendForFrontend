@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const assRepository = require('./src/repository/assRepository');
+const facRepository = require('./src/repository/facRepository');
 // temporary hard code, should use env file 
 const MOBILE_PORT = 3000;
 app.use('/getAll', (req, res, next) => {
@@ -14,8 +15,9 @@ app.use('/getById', (req, res, next) => {
     assRepository.getAssetById(req, res, next);
 })
 
-app.use('/', (req, res, next) => {
-    assRepository.testFunction(req, res, next);
+// Only mobile
+app.use('/fac/getById', (req, res, next) => {
+    facRepository.getFacById(req, res, next);
 })
 
 const server = http.createServer(app);
