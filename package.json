@@ -8,7 +8,11 @@
     "pro": "cross-env NODE_PATH=. NODE_ENV=production nodemon ",
     "mobile": "cross-env NODE_PATH=. NODE_ENV=development nodemon mobileServerBackend.js",
     "web": "cross-env NODE_PATH=. NODE_ENV=development nodemon webServerBackend.js",
-    "both": "cross-env NODE_PATH=. NODE_ENV=development nodemon mobileServerBackend.js nodemon webServerBackend.js",
+    "fac": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/facServer.js",
+    "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/assServer.js",
+    "seat": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/seatServer.js",
+    "both": "concurrently --kill-others \"npm run mobile\" \"npm run web\"",
+    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +31,8 @@
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "sequelize": "^5.8.6"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
   }
 }
