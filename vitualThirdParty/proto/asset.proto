@@ -1,0 +1,28 @@
+syntax = "proto3";
+package asset;
+
+service GetData {
+    rpc GetListAsset (AssetListRequest) returns (AssetResponse);
+    rpc GetAssetById (AssetRequest) returns (AssetItemResponse);
+}
+
+message AssetListRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message AssetRequest {
+    int32 id = 1;
+}
+
+message AssetResponse {
+    repeated AssetItemResponse assets = 1;
+}
+
+message AssetItemResponse {
+    string id = 1;
+    string name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+

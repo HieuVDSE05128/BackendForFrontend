@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const assMockdata = require('./mockdata/assMockData.json');
-
 const { pagination } = require('../src/util/commonFunction');
 
 const http = require('http');

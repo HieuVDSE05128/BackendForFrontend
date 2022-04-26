@@ -12,7 +12,8 @@
     "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/assServer.js",
     "seat": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/seatServer.js",
     "both": "concurrently --kill-others \"npm run mobile\" \"npm run web\"",
-    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\"",
+    "assgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/assGrpcServer.js", 
+    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\" \"npm run assgrpc\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,7 +31,12 @@
     "dotenv": "^4.0.0",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "@grpc/proto-loader": "^0.5.0",
+    "async": "^1.5.2",
+    "google-protobuf": "^3.0.0",
+    "@grpc/grpc-js": "^1.1.0",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
     "concurrently": "^7.1.0"
