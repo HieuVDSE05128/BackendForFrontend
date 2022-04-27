@@ -7,14 +7,7 @@ const http = require('http');
 const WEB_PORT = 3001;
 const server = http.createServer(app);
 
-app.use('/getAll', (req, res, next) => {
-    assRepository.getListAsset(req, res, next);
-})
-
-app.use('/getById', (req, res, next) => {
-    const id = Number(req.query.id)
-    assRepository.getAssetById(req, res, next);
-})
+app.use(webRouter);
 
 server.listen(WEB_PORT, () => {
     console.log(`web port list on port ${WEB_PORT}`)
