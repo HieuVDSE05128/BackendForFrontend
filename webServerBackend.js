@@ -1,5 +1,5 @@
 const config = require('./config');
-const webRouter = require('./src/controller/router/webRouter');
+const webRouter = require('./src/controller/web/webRouter');
 const express = require('express');
 const app = express();
 const http = require('http');

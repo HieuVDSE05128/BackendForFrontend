@@ -24,12 +24,12 @@ const client2 = new asset_proto.CreateData(config.externalSystem.assestUrl,
     grpc.credentials.createInsecure());
 
 module.exports = {
-    getListAsset(req, res, next) {
-        const { page, size } = req.query;
+    async getListAsset(req, res, next) {
+        const {page, size} = req.query;
         client.GetListAsset({ page: page, size: size }, function (err, response) {
-            // GET response from third party server
-            res.send(response)
+            res.send(response);
         });
+        
     },
 
     getAssetById(req, res, next) {
