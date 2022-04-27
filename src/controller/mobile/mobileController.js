@@ -12,6 +12,11 @@ module.exports = {
     },
 
     async getFacById(req, res, next) {
-        facRepository.getListFac(req, res, next);
+        facRepository.getFacById(req, res, next);
+    },
+
+    createAsset(req, res, next) {
+        const { name, assetResponsibility, assetPrice } = req.body;
+        assRepository.createAsset({ name, assetResponsibility, assetPrice }, res, next);
     }
 }
