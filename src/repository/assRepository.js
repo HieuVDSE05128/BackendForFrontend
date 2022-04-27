@@ -25,11 +25,15 @@ const client2 = new asset_proto.CreateData(config.externalSystem.assestUrl,
 
 module.exports = {
     async getListAsset(req, res, next) {
-        const {page, size} = req.query;
+        const { page, size } = req.query;
         client.GetListAsset({ page: page, size: size }, function (err, response) {
-            res.send(response);
+            if (err) {
+                console.log(err)
+                res.send(err);
+            } else {
+                res.send(response);
+            }
         });
-        
     },
 
     getAssetById(req, res, next) {

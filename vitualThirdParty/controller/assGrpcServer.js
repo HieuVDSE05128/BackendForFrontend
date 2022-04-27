@@ -22,6 +22,13 @@ var ass_proto = grpc.loadPackageDefinition(packageDefinition).asset;
 function GetListAsset(call, callback) {
     const page = call.request.page;
     const size = call.request.size;
+    if (!page || !size) {
+        callback({
+            code: grpc.status.INVALID_ARGUMENT,
+            message: 'Page and size must be input'
+        })
+        return;
+    }
     callback(null, { assets: pagination(assMockData, page, size) });
 }
 
