@@ -37,6 +37,6 @@ logs/utop/
 # Docker
 
 # Mock data
-mockdata/*
+vitualThirdParty/mockdata/*
 
 
