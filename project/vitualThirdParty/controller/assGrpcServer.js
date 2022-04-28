@@ -1,7 +1,7 @@
 
 const assMockData = require('../mockdata/assMockData.json');
-const { pagination } = require('../../src/util/commonFunction');
-const { saveAssestMockData } = require('../util/common');
+const { pagination } = require('../util/common');
+const { saveAssestMockData } = require('../util/fileCommon');
 var PROTO_PATH = __dirname + '/../proto/asset.proto';
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
@@ -73,6 +73,7 @@ function main() {
     });
     server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
         server.start();
+        console.log('Asset GRPC run at 50051')
     });
 }
 
