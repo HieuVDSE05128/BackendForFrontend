@@ -7,7 +7,7 @@ const http = require('http');
 // temporary hard code, should use env file 
 const MOBILE_PORT = 3000;
 
-app.use('/mobile', mobileRouter);
+app.use('/api', mobileRouter);
 
 const server = http.createServer(app);
 server.listen(MOBILE_PORT, () => {
