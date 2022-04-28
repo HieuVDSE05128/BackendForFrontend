@@ -9,13 +9,9 @@
     "mobile": "cross-env NODE_PATH=. NODE_ENV=development nodemon mobileServerBackend.js",
     "web": "cross-env NODE_PATH=. NODE_ENV=development nodemon webServerBackend.js",
     "both": "concurrently --kill-others \"npm run mobile\" \"npm run web\"",
-    "fac": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/facServer.js",
-    "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/assServer.js",
-    "seat": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/seatServer.js",
-    "assgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/assGrpcServer.js", 
-    "facgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/facGrpcServer.js", 
-    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\" \"npm run assgrpc\" ",
-    "3rdgrpc": "concurrently --kill-others \"npm run assgrpc\" \"npm run facgrpc\"",
+    "assgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon src/vitualThirdParty/controller/assGrpcServer.js", 
+    "facgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon src/vitualThirdParty/controller/facGrpcServer.js", 
+    "3rd": "concurrently --kill-others \"npm run assgrpc\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
