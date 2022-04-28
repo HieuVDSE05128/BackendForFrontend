@@ -1,3 +1,4 @@
+require("dotenv").config();
 const config = require('./config');
 const mobileRouter = require('./src/router/mobileRouter');
 const express = require('express');

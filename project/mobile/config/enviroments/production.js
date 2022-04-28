@@ -1,4 +1,3 @@
-require("dotenv").config();
 module.exports = {
     enviroment: {
         name: 'production',
