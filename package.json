@@ -14,7 +14,7 @@
     "seat": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/seatServer.js",
     "assgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/assGrpcServer.js", 
     "facgrpc": "cross-env NODE_PATH=. NODE_ENV=development nodemon vitualThirdParty/controller/facGrpcServer.js", 
-    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\" \"npm run assgrpc\" \"npm run facgrpc\"",
+    "3rd": "concurrently --kill-others \"npm run fac\" \"npm run ass\" \"npm run seat\" \"npm run assgrpc\" ",
     "3rdgrpc": "concurrently --kill-others \"npm run assgrpc\" \"npm run facgrpc\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

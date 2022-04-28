@@ -2,7 +2,6 @@
 const facMockData = require('../mockdata/facMockData.json');
 const { pagination } = require('../../src/util/commonFunction');
 var PROTO_PATH = __dirname + '/../proto/fac.proto';
-console.log('fac ' +PROTO_PATH)
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 var packageDefinition = protoLoader.loadSync(

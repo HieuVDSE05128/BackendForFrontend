@@ -1,18 +1,18 @@
 
 const assMockData = require('../mockdata/assMockData.json');
 const { pagination } = require('../../src/util/commonFunction');
+const { saveAssestMockData } = require('../util/common');
 var PROTO_PATH = __dirname + '/../proto/asset.proto';
-console.log(PROTO_PATH)
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
 var packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
     {
         keepCase: true,
-         longs: String,
-         enums: String,
-         defaults: true,
-         oneofs: true
+        longs: String,
+        enums: String,
+        defaults: true,
+        oneofs: true
     });
 var ass_proto = grpc.loadPackageDefinition(packageDefinition).asset;
 
@@ -33,19 +33,30 @@ function GetListAsset(call, callback) {
 }
 
 function GetAssetById(call, callback) {
-    const {id, name, assetResponsibility, assetPrice} = assMockData.find(ass => ass.id === Number(call.request.id));
+    const { id, name, assetResponsibility, assetPrice } = assMockData.find(ass => ass.id === Number(call.request.id));
     // null = err
-    callback(null, {id, name, assetResponsibility, assetPrice});
+    callback(null, { id, name, assetResponsibility, assetPrice });
 }
 
-function Create1(call, callback) {
-    console.log(`service 2`);
-    callback(null, {id: '1'});
+function CreateAsset(call, callback) {
+    // Create id for new ass (identity)
+    const id = assMockData[assMockData.length - 1].id + 1;
+    const { name, assetResponsibility, assetPrice } = call.request;
+    saveAssestMockData('ass')
+    callback(null, {
+        code: 200,
+        message: "success",
+        asset: { id, name, assetResponsibility, assetPrice }
+    });
 }
 
-function Create2(call, callback) {
-    console.log(`service 2`);
-    callback(null, {id: 'create2'});
+function EditAsset(call, callback) {
+    const asset = assMockData.find(ass => ass.id)
+    callback(null, {
+        code: 200,
+        message: "success",
+        asset: { id, name, assetResponsibility, assetPrice }
+    });
 }
 
 /**
@@ -54,8 +65,12 @@ function Create2(call, callback) {
  */
 function main() {
     var server = new grpc.Server();
-    server.addService(ass_proto.GetData.service, { GetListAsset: GetListAsset, GetAssetById: GetAssetById });
-    server.addService(ass_proto.CreateData.service, { Create1: Create1, Create2: Create2 });
+    server.addService(ass_proto.AssetService.service, {
+        GetListAsset: GetListAsset,
+        GetAssetById: GetAssetById,
+        CreateAsset: CreateAsset,
+        EditAsset: EditAsset
+    });
     server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
         server.start();
     });

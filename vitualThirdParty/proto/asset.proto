@@ -1,14 +1,11 @@
 syntax = "proto3";
 package asset;
 
-service GetData {
-    rpc GetListAsset (AssetListRequest) returns (AssetResponse);
-    rpc GetAssetById (AssetRequest) returns (AssetItemResponse);
-}
-
-service CreateData {
-    rpc Create1 (nothing) returns (nothing);
-    rpc Create2 (nothing) returns (nothing);
+service AssetService {
+    rpc GetListAsset (AssetListRequest) returns (ListAssetResponse);
+    rpc GetAssetById (AssetRequest) returns (AssetItem);
+    rpc CreateAsset (AssetCreateRequest) returns (CreateUpdateResult);
+    rpc EditAsset (AssetEditRequest) returns (CreateUpdateResult);
 }
 
 message AssetListRequest {
@@ -20,18 +17,37 @@ message AssetRequest {
     int32 id = 1;
 }
 
-message AssetResponse {
-    repeated AssetItemResponse assets = 1;
+message ListAssetResponse {
+    repeated AssetItem assets = 1;
 }
 
-message AssetItemResponse {
-    string id = 1;
-    string name = 2;
+message AssetSingleResponse {
+    AssetItem assets = 1;
+}
+
+message AssetItem {
+    int32 id = 1;
+    int32 name = 2;
     string assetResponsibility = 3;
     int32 assetPrice = 4;
 }
 
-message nothing {
-    string id = 1;
+message AssetCreateRequest {
+    int32 name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+
+message AssetEditRequest {
+    int32 id = 1;
+    int32 name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+
+message CreateUpdateResult {
+    string status = 1;
+    string message = 2;
+    AssetItem asset = 3;
 }
 
