@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon controller/assGrpcServer.js"
+    "ass": "cross-env NODE_PATH=. NODE_ENV=development nodemon controller/assGrpcServer.js",
+    "fac": "cross-env NODE_PATH=. NODE_ENV=development nodemon controller/facGrpcServer.js",
+    "3rd": "concurrently --kill-others \"npm run ass\" \"npm run fac\""
   },
   "keywords": [],
   "author": "",
@@ -15,5 +17,8 @@
     "async": "^1.5.2",
     "google-protobuf": "^3.0.0",
     "@grpc/grpc-js": "^1.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
   }
 }
