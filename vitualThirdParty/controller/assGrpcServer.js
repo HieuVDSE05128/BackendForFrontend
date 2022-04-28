@@ -1,7 +1,7 @@
 
 const assMockData = require('../mockdata/assMockData.json');
 const { pagination } = require('../../src/util/commonFunction');
-const { saveMockData } = require('../util/common');
+const { saveAssestMockData } = require('../util/common');
 var PROTO_PATH = __dirname + '/../proto/asset.proto';
 var grpc = require('@grpc/grpc-js');
 var protoLoader = require('@grpc/proto-loader');
@@ -42,7 +42,7 @@ function CreateAsset(call, callback) {
     // Create id for new ass (identity)
     const id = assMockData[assMockData.length - 1].id + 1;
     const { name, assetResponsibility, assetPrice } = call.request;
-    saveMockData('ass')
+    saveAssestMockData('ass')
     callback(null, {
         code: 200,
         message: "success",

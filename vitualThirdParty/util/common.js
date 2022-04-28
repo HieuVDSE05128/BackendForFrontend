@@ -1,13 +1,11 @@
 const fs = require('fs')
-const MOCK_PATH = '../mockdata/';;
-const saveMockData = (fileName) => {
-    fs.readFile(MOCK_PATH + fileName + 'MockData.json', (err, data) => {
-        if (err) throw err;
-        let student = JSON.parse(data);
-        console.log(student);
-    });
+const saveAssestMockData = (asset) => {
+    let rawdata = fs.readFileSync(__dirname + '/../mockdata/assMockData.json');
+    let assets = JSON.parse(rawdata);
+    assets.push(asset)
+    fs.writeFileSync(__dirname + '/../mockdata/assMockData.json', JSON.stringify(assets));
 }
 
 module.exports = {
-    saveMockData
+    saveAssestMockData,
 }
