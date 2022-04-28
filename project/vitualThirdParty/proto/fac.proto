@@ -1,0 +1,30 @@
+syntax = "proto3";
+package fac;
+
+service GetData {
+    rpc GetListfac (FacListRequest) returns (FacResponse);
+    rpc GetfacById (FacRequest) returns (FacItemResponse);
+}
+
+message FacListRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message FacRequest {
+    int32 id = 1;
+}
+
+message FacResponse {
+    repeated FacItemResponse facs = 1;
+}
+
+message FacItemResponse {
+    int32 id = 1; 
+    string first_name = 2; 
+    string last_name = 3;
+    string email = 4; 
+    string gender = 5;
+    bool isCovid = 6;
+}
+

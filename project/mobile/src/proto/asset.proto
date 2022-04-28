@@ -1,0 +1,53 @@
+syntax = "proto3";
+package asset;
+
+service AssetService {
+    rpc GetListAsset (AssetListRequest) returns (ListAssetResponse);
+    rpc GetAssetById (AssetRequest) returns (AssetItem);
+    rpc CreateAsset (AssetCreateRequest) returns (CreateUpdateResult);
+    rpc EditAsset (AssetEditRequest) returns (CreateUpdateResult);
+}
+
+message AssetListRequest {
+    int32 page = 1;
+    int32 size = 2;
+}
+
+message AssetRequest {
+    int32 id = 1;
+}
+
+message ListAssetResponse {
+    repeated AssetItem assets = 1;
+}
+
+message AssetSingleResponse {
+    AssetItem assets = 1;
+}
+
+message AssetItem {
+    int32 id = 1;
+    int32 name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+
+message AssetCreateRequest {
+    int32 name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+
+message AssetEditRequest {
+    int32 id = 1;
+    int32 name = 2;
+    string assetResponsibility = 3;
+    int32 assetPrice = 4;
+}
+
+message CreateUpdateResult {
+    string status = 1;
+    string message = 2;
+    AssetItem asset = 3;
+}
+
