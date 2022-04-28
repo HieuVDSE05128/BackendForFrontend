@@ -4,6 +4,11 @@
 # Node
 node_modules/
 
+# Mock data
+mockdata/*
+*MockData.json
+mockdata/
+
 # Project specific
 
 # Unit test / coverage reports
@@ -36,8 +41,6 @@ logs/utop/
 
 # Docker
 
-# Mock data
-mockdata/*
-*MockData
+
 
 
